@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>slqsh UGC Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* one visual world: icy paper page, navy ink, night-blue photo frames like the renders, candy-pink accent */
+  --paper: #f2f3fa;
+  --card: #ffffff;
+  --ink: #1d2340;
+  --muted: #5b6183;
+  --line: #dcdff0;
+  --night: #131a33;
+  --pink: #ef4b86;
+  --pink-soft: #ffe1ec;
+  --mint: #1f9c74;
+  --mint-soft: #dcf4ea;
+  --tape: rgba(255, 214, 120, 0.72);
+  --display: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --hand: "Caveat", "Segoe Print", "Comic Sans MS", cursive;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 17px/1.6 var(--body);
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; border-radius: 6px; }
+.wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+
+/* header */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0; flex-wrap: wrap; }
+.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+.brand b { font: 700 34px/1 var(--display); letter-spacing: -0.5px; }
+.brand span { font: 700 22px/1 var(--hand); color: var(--pink); transform: rotate(-4deg); display: inline-block; }
+.nav { display: flex; gap: 6px; flex-wrap: wrap; }
+.nav a { text-decoration: none; font-weight: 600; font-size: 15px; padding: 8px 12px; border-radius: 999px; color: var(--muted); }
+.nav a:hover { color: var(--ink); background: var(--card); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; padding: 28px 0 64px; }
+.status { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; color: var(--mint); background: var(--mint-soft); padding: 6px 12px; border-radius: 999px; }
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--mint); }
+h1 { font: 700 clamp(38px, 5.4vw, 60px)/1.05 var(--display); margin: 18px 0 16px; letter-spacing: -1px; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--pink); }
+.lead { color: var(--muted); max-width: 33em; margin: 0 0 26px; }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { font: 600 16px/1 var(--body); text-decoration: none; padding: 14px 20px; border-radius: 12px; border: 2px solid var(--ink); background: var(--ink); color: #fff; cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn:hover { transform: translateY(-1px); }
+
+.collage { position: relative; width: 100%; aspect-ratio: 1 / 1.16; }
+.polaroid { position: absolute; margin: 0; background: #fff; padding: 9px 9px 38px; border-radius: 4px; box-shadow: 0 14px 30px rgba(29, 35, 64, 0.16); width: 47%; }
+.polaroid img { border-radius: 2px; background: var(--night); aspect-ratio: 1; object-fit: cover; width: 100%; }
+.polaroid figcaption { position: absolute; left: 0; right: 0; bottom: 7px; text-align: center; font: 700 22px/1 var(--hand); color: var(--ink); }
+.polaroid::before { content: ""; position: absolute; top: -11px; left: 50%; width: 84px; height: 22px; margin-left: -42px; background: var(--tape); transform: rotate(-3deg); }
+.p1 { left: 1%; top: 2%; transform: rotate(-5deg); }
+.p2 { right: 1%; top: 6%; transform: rotate(4deg); }
+.p3 { left: 28%; top: 53%; transform: rotate(-1.5deg); z-index: 3; }
+.note { position: absolute; left: 0; bottom: 12%; z-index: 4; margin: 0; font: 700 24px/1.1 var(--hand); color: var(--pink); transform: rotate(-7deg); max-width: 5.5em; }
+
+/* sections */
+section { padding: 56px 0; border-top: 1px dashed var(--line); }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; }
+h2 { font: 700 clamp(28px, 3.4vw, 38px)/1.1 var(--display); margin: 0; letter-spacing: -0.5px; }
+.head p { margin: 6px 0 0; color: var(--muted); max-width: 36em; }
+.scribble { font: 700 22px/1.2 var(--hand); color: var(--pink); transform: rotate(-2deg); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 22px; }
+.item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+.shot { position: relative; background: var(--night); aspect-ratio: 1; }
+.shot img { width: 100%; height: 100%; object-fit: cover; }
+.flip { position: absolute; right: 10px; bottom: 10px; font: 600 13px/1 var(--body); color: #fff; background: rgba(19, 26, 51, 0.72); border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 999px; padding: 8px 11px; cursor: pointer; }
+.flip:hover { background: rgba(19, 26, 51, 0.92); }
+.info { padding: 14px 16px 16px; display: grid; gap: 8px; }
+.info h3 { margin: 0; font: 600 19px/1.2 var(--display); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 13px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--paper); color: var(--muted); font-variant-numeric: tabular-nums; }
+.chip.ok { background: var(--mint-soft); color: var(--mint); }
+.chip.hot { background: var(--pink-soft); color: var(--pink); }
+.item p { margin: 0; font-size: 15px; color: var(--muted); }
+
+/* specs + steps */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 26px 28px; }
+.panel h3 { margin: 0 0 14px; font: 600 22px/1.2 var(--display); }
+dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 10px 18px; }
+dt { font-weight: 700; }
+dd { margin: 0; color: var(--muted); }
+ol { margin: 0; padding-left: 0; list-style: none; counter-reset: s; display: grid; gap: 14px; }
+ol li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; color: var(--muted); }
+ol li::before { content: counter(s); font: 700 17px/34px var(--display); width: 34px; height: 34px; text-align: center; border-radius: 50%; background: var(--pink-soft); color: var(--pink); }
+ol li b { color: var(--ink); }
+
+/* contact */
+.contact { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: center; }
+.discord { background: var(--ink); color: #fff; border-radius: 16px; padding: 28px; display: grid; gap: 14px; }
+.discord small { color: #b9bedc; font-size: 14px; }
+.handle { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 12px 12px 12px 18px; flex-wrap: wrap; }
+.handle code { font: 600 24px/1 var(--display); letter-spacing: 0.3px; }
+.handle button { font: 600 15px/1 var(--body); background: var(--pink); color: #fff; border: 0; border-radius: 10px; padding: 11px 16px; cursor: pointer; }
+.copied { font-size: 14px; color: #ffd0e0; margin: 0; }
+.copied:empty { display: none; }
+
+footer { padding: 30px 0 48px; color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px dashed var(--line); }
+
+@media (max-width: 860px) {
+  .hero, .two, .contact { grid-template-columns: 1fr; }
+  .collage { max-width: 520px; margin-inline: auto; }
+}
+@media (max-width: 440px) {
+  .nav a { padding: 6px 8px; font-size: 14px; }
+  .polaroid figcaption { font-size: 18px; bottom: 9px; }
+  .note { display: none; }
+  .panel { padding: 22px 20px; }
+  dl { grid-template-columns: 1fr; gap: 2px 0; }
+  dd { margin-bottom: 10px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" aria-label="slqsh home"><b>slqsh</b><span>ugc</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#models">Models</a>
+      <a href="#holiday">Holiday</a>
+      <a href="#details">What you get</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <span class="status">Commissions open</span>
+        <h1>Cute, cozy <em>UGC accessories</em> for Roblox avatars.</h1>
+        <p class="lead">Headphones, hats, shoulder pets, backpacks and more, made in Blender and fitted to the standard Roblox R15 rig. Every ready-made model goes to one buyer only.</p>
+        <div class="ctas">
+          <a class="btn" href="#models">See the models</a>
+          <a class="btn ghost" href="#contact">Message on Discord</a>
+        </div>
+      </div>
+      <div class="collage" aria-hidden="true">
+        <figure class="polaroid p1"><img src="img/KittyBeatHeadphones_a.webp" alt=""><figcaption>kitty beats</figcaption></figure>
+        <figure class="polaroid p2"><img src="img/LilyFrogBuddy_a.webp" alt=""><figcaption>lily the frog</figcaption></figure>
+        <figure class="polaroid p3"><img src="img/SweetheartShades_a.webp" alt=""><figcaption>sweetheart shades</figcaption></figure>
+        <p class="note">new holiday set below</p>
+      </div>
+    </div>
+
+    <section id="models">
+      <div class="head">
+        <div>
+          <h2>Ready-made models</h2>
+          <p>Each one is sold once. When a model sells, it comes off this page and is never sold again. Tap <b>Other angle</b> to turn it around.</p>
+        </div>
+        <span class="scribble">1 of 1, every time</span>
+      </div>
+      <div class="grid" id="shop"></div>
+    </section>
+
+    <section id="holiday">
+      <div class="head">
+        <div>
+          <h2>Holiday 2026</h2>
+          <p>Our winter set: frosty wings, a cocoa-sipping shoulder buddy and a cozy lit-up scarf.</p>
+        </div>
+        <span class="scribble">made for winter</span>
+      </div>
+      <div class="grid" id="holidayGrid"></div>
+    </section>
+
+    <section id="details">
+      <div class="two">
+        <div class="panel">
+          <h3>What you get</h3>
+          <dl>
+            <dt>Model</dt><dd>One clean mesh as .fbx or .glb</dd>
+            <dt>Textures</dt><dd>1024 px color map plus normal, roughness and metalness maps</dd>
+            <dt>Roblox file</dt><dd>A fitted Accessory (.rbxm), ready for Save to Roblox in Studio</dd>
+            <dt>Limits</dt><dd>Under 4,000 triangles, inside the size box for its slot</dd>
+            <dt>Exclusive</dt><dd>Sold to you only. We never sell the same model twice</dd>
+          </dl>
+        </div>
+        <div class="panel">
+          <h3>Commissions</h3>
+          <ol>
+            <li><span><b>Send your idea.</b> DM us on Discord with references, the slot (hat, face, neck, back, shoulder, waist) and any deadline.</span></li>
+            <li><span><b>Get a quote.</b> We reply with a price and how long it will take.</span></li>
+            <li><span><b>See it first.</b> You get preview renders on an avatar before the final files.</span></li>
+            <li><span><b>Upload it.</b> You receive the files above and publish it under your own name or group.</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <div>
+          <h2>Want one?</h2>
+          <p class="lead" style="margin-top:12px">Message us on Discord with the model name or your idea.</p>
+        </div>
+        <div class="discord">
+          <small>Discord</small>
+          <div class="handle">
+            <code id="dc">wapco</code>
+            <button type="button" id="copyBtn">Copy username</button>
+          </div>
+          <p class="copied" id="copyMsg" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>slqsh &middot; Roblox UGC &middot; 2026</span>
+    <span>Not affiliated with Roblox Corporation.</span>
+  </footer>
+</div>
+
+<script>
+const shop = [
+  { k: "KittyBeatHeadphones", name: "Kitty Beat Headphones", slot: "Hat", tris: 3592, note: "Pastel pink cans with cat ears and heart decals." },
+  { k: "LilyFrogBuddy", name: "Lily Frog Buddy", slot: "Shoulder", tris: 2878, note: "A chubby frog on a lily pad, sitting on your shoulder." },
+  { k: "StarfallCharmNecklace", name: "Starfall Charm Necklace", slot: "Neck", tris: 3824, note: "Silver chain, pearl strand, star pendant and heart charms." },
+  { k: "PuffyStarBackpack", name: "Puffy Star Backpack", slot: "Back", tris: 2978, note: "Quilted lavender star with a zipper and flat straps." },
+  { k: "SweetheartShades", name: "Sweetheart Shades", slot: "Face", tris: 1724, note: "Heart lenses in rose-gold frames with tiny gem studs." },
+  { k: "ToadstoolBucketHat", name: "Toadstool Bucket Hat", slot: "Hat", tris: 3656, note: "Red mushroom bucket hat with spots and stitched seams." },
+  { k: "LopBunnyHeadband", name: "Lop Bunny Headband", slot: "Hat", tris: 3044, note: "One ear up, one ear flopped, finished with a bow." }
+];
+const holiday = [
+  { k: "FrostflakeWings", name: "Frostflake Wings", slot: "Back", tris: 3156, tag: "Holiday", note: "Ice-feather wings with frosted blue tips." },
+  { k: "CocoaPenguinPal", name: "Cocoa Penguin Pal", slot: "Shoulder", tag: "Holiday", note: "A penguin in a beanie holding hot cocoa." },
+  { k: "TwinkleKnitScarf", name: "Twinkle Knit Scarf", slot: "Neck", tag: "Holiday", note: "Chunky knit scarf wrapped in tiny string lights." }
+];
+
+function card(m, sold) {
+  const el = document.createElement("article");
+  el.className = "item";
+  const chips = [`<span class="chip">${m.slot}</span>`];
+  if (m.tris) chips.push(`<span class="chip">${m.tris.toLocaleString("en-US")} tris</span>`);
+  if (sold) chips.push(`<span class="chip ok">Available</span>`);
+  if (m.tag) chips.push(`<span class="chip hot">${m.tag}</span>`);
+  el.innerHTML = `
+    <div class="shot">
+      <img src="img/${m.k}_a.webp" alt="${m.name} on a Roblox avatar" width="760" height="760">
+      <button type="button" class="flip" aria-label="Show another angle of ${m.name}">Other angle</button>
+    </div>
+    <div class="info">
+      <h3>${m.name}</h3>
+      <div class="chips">${chips.join("")}</div>
+      <p>${m.note}</p>
+    </div>`;
+  const img = el.querySelector("img");
+  let side = "a";
+  el.querySelector(".flip").addEventListener("click", () => {
+    side = side === "a" ? "b" : "a";
+    img.src = `img/${m.k}_${side}.webp`;
+  });
+  return el;
+}
+const shopGrid = document.getElementById("shop");
+shop.forEach(m => shopGrid.appendChild(card(m, true)));
+const hGrid = document.getElementById("holidayGrid");
+holiday.forEach(m => hGrid.appendChild(card(m, false)));
+
+document.getElementById("copyBtn").addEventListener("click", async () => {
+  const msg = document.getElementById("copyMsg");
+  try {
+    await navigator.clipboard.writeText("wapco");
+    msg.textContent = "Copied. Add wapco on Discord and send a message.";
+  } catch (e) {
+    const r = document.createRange();
+    r.selectNodeContents(document.getElementById("dc"));
+    const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    msg.textContent = "Selected. Press Ctrl+C (or Cmd+C) to copy.";
+  }
+});
+</script>
+</body>
+</html>
